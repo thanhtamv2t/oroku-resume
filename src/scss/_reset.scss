@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  clear: both;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: all ease 0.5s;
+  &,
+  &:visited {
+    color: rgba($dark, 0.7);
+  }
+  &:hover {
+    color: $dark;
+  }
+}

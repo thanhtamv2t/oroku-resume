@@ -1,0 +1,80 @@
+.flex {
+  display: flex;
+}
+.text-grey {
+  font-family: "Roboto", sans-serif;
+  color: rgba($dark, 0.6);
+  letter-spacing: 1px;
+  text-align: justify;
+  b {
+    color: $dark;
+  }
+}
+
+.btn {
+  padding: 12px 36px;
+  background: $dark;
+  border-radius: 1px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  &,
+  &:visited {
+    color: $light;
+  }
+  &:hover {
+    color: rgba($light, 0.6);
+  }
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+    margin-bottom: $space-small;
+  }
+}
+
+//Progressbar
+.progress_bar {
+  position: relative;
+  display: block;
+  height: 8px;
+  width: 90%;
+  background: $grey;
+  margin-top: $space-small;
+  content: " ";
+  clear: both;
+  .percent {
+    background: $dark;
+    content: " ";
+    height: 8px;
+  }
+}
+//Form
+.form {
+  margin: $space-big 0 0 0;
+  label {
+    clear: both;
+    color: $grey;
+    &.hasError {
+      color: #ff7675;
+      input {
+        border: 1px solid #ff7675;
+        &::placeholder {
+          color: #ff7675;
+        }
+      }
+    }
+  }
+  input,
+  textarea {
+    width: 90%;
+    margin: $space-small 0;
+    display: block;
+    border: none;
+    background: $light-grey;
+    padding: $space-small;
+  }
+}

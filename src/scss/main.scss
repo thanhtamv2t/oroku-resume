@@ -1,0 +1,360 @@
+@import "./variable";
+@import "./reset";
+@import "./grid";
+@import "./responsive";
+@import "./animation";
+@import "./utils";
+
+body {
+  font-family: "Oswald", sans-serif;
+  color: $dark;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 23%;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  &__logo {
+    width: 100%;
+    text-align: center;
+    padding: 48px 0;
+    &__brand {
+      font-family: "Great Vibes", cursive;
+      text-transform: capitalize;
+      font-size: 3em;
+    }
+    &__slogan {
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: $grey;
+      font-size: 1.2em;
+    }
+  }
+  &__navigation {
+    flex: 1;
+    ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      li {
+        padding: 12px 0;
+        text-align: center;
+        a {
+          transition: all ease 0.5s;
+          &,
+          &:visited {
+            color: rgba($dark, 0.7);
+            text-decoration: none;
+            text-transform: uppercase;
+          }
+          &:hover {
+            color: $dark;
+          }
+        }
+      }
+    }
+  }
+  &__social {
+    margin-top: $space-big;
+    ul {
+      padding: 0;
+      margin: 0 auto;
+      display: flex;
+      width: 80%;
+      li {
+        flex: 1;
+        text-align: center;
+        list-style: none;
+        a {
+          text-decoration: none;
+          transition: all ease 0.5s;
+          &,
+          &:visited,
+          & i {
+            color: rgba($dark, 0.7);
+          }
+
+          &:hover .lni-facebook-filled {
+            color: #4267b2;
+          }
+          &:hover .lni-instagram-filled {
+            color: #fb3958;
+          }
+          &:hover .lni-github-original {
+            color: $dark;
+          }
+          &:hover .lni-linkedin-original {
+            color: #2867b2;
+          }
+        }
+      }
+    }
+  }
+  &__footer {
+    width: 100%;
+    margin: $space-big 0;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+.content {
+  flex: 1;
+  margin-left: 23%;
+  position: relative;
+  z-index: 0;
+  transition: all ease 0.5s;
+  .block {
+    height: auto;
+    width: 100%;
+    padding: $space-big;
+    &--full {
+      height: 100vh;
+    }
+    &--grey {
+      background: $light-grey;
+    }
+  }
+  .section {
+    .title {
+      font-size: 30px;
+    }
+    .sub-title {
+      font-size: 14px;
+      color: lighten($dark, 50%);
+      margin-left: 3px;
+    }
+    .title,
+    .sub-title {
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+  }
+  .hero-section {
+    position: relative;
+    background: url(../img/hero-section.jpg) center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba($dark, 0.35);
+      content: " ";
+      z-index: 0;
+    }
+    &__view {
+      position: relative;
+      z-index: 1;
+      color: $light;
+      text-shadow: 0 0 30px rgba(black, 0.05);
+      font-size: 2.5em;
+      text-align: center;
+      &__avatar {
+        min-height: 220px;
+        min-width: 220px;
+        img {
+          max-width: 220px;
+          border-radius: 50%;
+          border: 9px solid $light;
+          box-shadow: 0 0 30px rgba(black, 0.05);
+        }
+      }
+      &__name {
+        font-weight: bolder;
+        text-transform: uppercase;
+      }
+      &__position {
+        font-weight: bold;
+        font-size: 0.8em;
+      }
+    }
+    &__scrollDown {
+      position: absolute;
+      bottom: $space-big;
+      left: 50%;
+      transform: translateX(-50%);
+      color: $light;
+      font-weight: bold;
+      animation: 2s jump infinite;
+      font-size: 1.5em;
+      cursor: pointer;
+      a {
+        &,
+        &:visited {
+          color: $light;
+        }
+      }
+    }
+  }
+  //About Me
+  .about-me {
+    padding: $space-big 0;
+    &__photo {
+      width: 35%;
+      img {
+        max-width: 100%;
+      }
+    }
+    &__content {
+      flex: 1;
+      padding: 0 $space-big;
+      .title {
+        font-size: 1em;
+      }
+      &__information {
+        ul {
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          li {
+            list-style: none;
+            width: 50%;
+            margin-bottom: $space-small;
+          }
+        }
+      }
+    }
+    &__controls {
+      margin-top: $space-big;
+    }
+  }
+
+  .skills {
+    margin: $space-big 0 0 0;
+    & > div {
+      flex: 1;
+    }
+  }
+  //Team
+  .team {
+    &__cards {
+      margin-top: $space-big;
+      justify-content: space-between;
+    }
+    &__card {
+      flex: 1;
+      max-width: 30%;
+      &:last-child {
+        margin-right: 0;
+      }
+      &__avatar {
+        img {
+          max-width: 100%;
+        }
+      }
+      &__name {
+        font-size: 2.5em;
+        text-align: center;
+        margin: $space-big;
+      }
+      &__position {
+        font-size: 1.3em;
+        text-align: center;
+        margin-top: -0.5em;
+      }
+      &__social {
+        margin: $space-big;
+        .list {
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+
+  //Portfolio
+  .portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: $space-big;
+    &-item {
+      position: relative;
+      width: 22.5%;
+      margin-right: 2.5%;
+      margin-bottom: 2em;
+      position: relative;
+      background: #fff;
+      box-shadow: 0 0 30px rgba(black, 0.05);
+      overflow: hidden;
+      cursor: pointer;
+      .information {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1em;
+        background: rgba(white, 0.9);
+        transform: translateY(98%);
+        transition: all ease 1s;
+        border-top: 1px solid rgba(black, 0.12);
+      }
+      &:hover .information {
+        transform: translateY(0);
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .contact {
+    &-form {
+      margin-top: $space-small;
+      h4 {
+        letter-spacing: 1px;
+        font-weight: lighter;
+        text-transform: uppercase;
+      }
+      & > div {
+        flex: 2;
+        box-sizing: border-box;
+        &:first-child {
+          display: flex;
+          flex-direction: column;
+          .contact-svg {
+            align-self: flex-end;
+            margin-top: auto;
+          }
+        }
+        &:last-child {
+          flex: 3;
+          margin-left: 3em;
+        }
+      }
+    }
+    &-svg {
+      max-width: 50%;
+    }
+  }
+  footer {
+    padding: $space-big * 2;
+    background: $dark;
+    color: $light;
+    justify-content: space-between;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    .sub-logo {
+      font-family: "Great Vibes", cursive;
+      text-transform: capitalize;
+    }
+  }
+}
